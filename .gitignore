@@ -1,0 +1,4 @@
+.vscode/
+bin/
+genetic-algorithm.code-workspace
+obj/
