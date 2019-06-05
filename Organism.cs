@@ -2,12 +2,16 @@ using System;
 
 namespace GenticAlgorithm
 {
-
+    // The organism class is responsible for defining organisms that form a 
+    // population and determine how fit an organism is
     class Organism
     {
 
-        int fitness = 0;
-        int[] genes = new int[10];
+        // Determines how fit an organism is (fitness score)
+        int Fitness = 0;
+
+        // An abstract binary representation of an organisms genes
+        int[] Genes = new int[10];
 
         // Constructor for organism class
         public Organism()
@@ -39,9 +43,5 @@ namespace GenticAlgorithm
                 }
             }
         }
-
-
     }
-
-
 }
