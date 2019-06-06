@@ -6,12 +6,11 @@ namespace GenticAlgorithm
     // population and determine how fit an organism is
     class Organism
     {
-
         // Determines how fit an organism is (fitness score)
-        int Fitness = 0;
+        int fitness = 0;
 
         // An abstract binary representation of an organisms genes
-        int[] Genes = new int[10];
+        int[] genes = new int[10];
 
         // Constructor for organism class
         public Organism()
@@ -33,7 +32,9 @@ namespace GenticAlgorithm
         // fitness score.
         // In this case, the fitness score will favour individuals that contain
         // 1's in the binary representation of their genes.
-        public void CalculateFitness()
+        // TODO Use a function delegate here so that a fitness function can be 
+        // passed in to determine fitness
+        public void DetermineFitness()
         {
             for (int i = 0; i < genes.Length; i++)
             {

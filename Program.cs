@@ -7,7 +7,11 @@ class Program
     {
         Console.WriteLine("Genetic Algorithm Example");
 
-        Population population = new Population(90);
+        Population population = new Population(100);
+
+        // The number of generatioins to run
+        int epoch = 5;
+        population.age(epoch);
 
     }
 }
