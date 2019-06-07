@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+// The System.Linq namespace provides classes and interfaces that support 
+// queries that use Language-Integrated Query (LINQ).
+using System.Linq;
+
 namespace GenticAlgorithm
 {
     class Population
@@ -19,7 +23,6 @@ namespace GenticAlgorithm
             {
                 organisms.Add(new Organism());
             }
-
             fitnessPercentage = percent;
         }
 
@@ -28,7 +31,8 @@ namespace GenticAlgorithm
         public void age(int epoch)
         {
             Console.WriteLine("Agining population " + epoch + " generatons.");
-            // Tell each organism to 
+
+            // Generate through successive generations
             for (int i = 1; i <= epoch; i++)
             {
                 Console.WriteLine("Population age: " + i);
@@ -45,7 +49,15 @@ namespace GenticAlgorithm
             double fittestCount = Math.Ceiling(populationSize * fitnessPercentage);
             Console.WriteLine("Calculating the fittest " + fittestCount + " percent of the population.");
 
-            // Sort organisms based on object values
+            // Determine the fitness of each organism
+            organisms.ForEach(o => o.DetermineFitness());
+
+            // Sort organisms based on object values using LINQ
+            // Here we use the list OrderBy method to sort the list
+            Console.WriteLine("Sorting the population by fittest.");
+            List<Organism> sortedOrganisms = organisms.OrderByDescending(o => o.getFitness()).ToList();
+
+            Console.WriteLine("Done"); // testing
 
         }
     }
