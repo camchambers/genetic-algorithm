@@ -27,14 +27,13 @@ namespace GenticAlgorithm
             fitnessPercentage = percent;
         }
 
-        // Ages a population according to an epoch
-        // Each epoch will produce a new generation of organisms 
-        public void age(int epoch)
+        // Ages a population according to the number of generations
+        public void age(int generations)
         {
-            Console.WriteLine("Agining population " + epoch + " generatons.");
+            Console.WriteLine("Agining population " + generations + " generatons.");
 
             // Generate through successive generations
-            for (int i = 1; i <= epoch; i++)
+            for (int i = 1; i <= generations; i++)
             {
                 Console.WriteLine("Population age: " + i);
                 this.getFittest();

@@ -10,8 +10,8 @@ class Program
         Population population = new Population(100);
 
         // The number of generatioins to run
-        int epoch = 5;
-        population.age(epoch);
+        int generations = 5;
+        population.age(generations);
 
     }
 }
