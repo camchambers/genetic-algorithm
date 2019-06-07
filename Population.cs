@@ -9,12 +9,12 @@ namespace GenticAlgorithm
 {
     class Population
     {
-        int populationSize = 10;
-        float fitnessPercentage = 0.05f;
+        int populationSize = 20;
+        float fitnessPercentage = 0.2f;
         List<Organism> organisms = new List<Organism>();
 
         // Population constructor       
-        public Population(int size = 10, float percent = 0.05f)
+        public Population(int size = 10, float percent = 0.2f)
         {
             Console.WriteLine("Generating a population of size " + size + ".");
 
@@ -23,6 +23,7 @@ namespace GenticAlgorithm
             {
                 organisms.Add(new Organism());
             }
+            populationSize = size;
             fitnessPercentage = percent;
         }
 
@@ -58,6 +59,7 @@ namespace GenticAlgorithm
             List<Organism> sortedOrganisms = organisms.OrderByDescending(o => o.getFitness()).ToList();
 
             // Select the top n fittest determined by fittest count
+            Console.WriteLine("Selecting the top " + fittestCount + " organisms from the population");
             Console.WriteLine("Done"); // testing
 
         }
