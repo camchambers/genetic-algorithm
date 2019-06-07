@@ -70,9 +70,18 @@ namespace GenticAlgorithm
 
         }
 
+        // Mate pairs of the fittest organisms to produce a new population
         protected List<Organism> crossOver(List<Organism> organisms)
         {
             return organisms;
         }
+
+        // Perform random mutations of some of the genes of offspring (with a
+        // low probability) 
+        protected List<Organism> mutation(List<Organism> organisms)
+        {
+            return organisms;
+        }
+
     }
 }
