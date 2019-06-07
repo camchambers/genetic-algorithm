@@ -36,13 +36,13 @@ namespace GenticAlgorithm
             for (int i = 1; i <= generations; i++)
             {
                 Console.WriteLine("Population age: " + i);
-                this.getFittest();
+                List<Organism> fittestOrganisms = this.getFittest();
             }
         }
 
         // Return an array containing a percent of the fittest individuals
         // from the population
-        protected void getFittest()
+        protected List<Organism> getFittest()
         {
             // Use fitnessPercentage to determine number of organisms to 
             // return as being the fittest
@@ -57,10 +57,22 @@ namespace GenticAlgorithm
             Console.WriteLine("Sorting the population by fittest.");
             List<Organism> sortedOrganisms = organisms.OrderByDescending(o => o.getFitness()).ToList();
 
-            // Select the top n fittest determined by fittest count
+            // Select the top n fittest determined by fittest count by iterating
+            // over the sorted list of organisms and adding them to a new list
             Console.WriteLine("Selecting the top " + fittestCount + " organisms from the population");
-            Console.WriteLine("Done"); // testing
+            List<Organism> fittestOrganisms = new List<Organism>();
+            for (int i = 0; i < fittestCount; i++)
+            {
+                fittestOrganisms.Add(sortedOrganisms[i]);
+            }
 
+            return fittestOrganisms;
+
+        }
+
+        protected List<Organism> crossOver(List<Organism> organisms)
+        {
+            return organisms;
         }
     }
 }
