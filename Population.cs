@@ -47,7 +47,7 @@ namespace GenticAlgorithm
             // Use fitnessPercentage to determine number of organisms to 
             // return as being the fittest
             double fittestCount = Math.Ceiling(populationSize * fitnessPercentage);
-            Console.WriteLine("Calculating the fittest " + fittestCount + " percent of the population.");
+            Console.WriteLine("Calculating the fittest " + (fitnessPercentage * 100) + "% of the population.");
 
             // Determine the fitness of each organism
             organisms.ForEach(o => o.DetermineFitness());
@@ -57,6 +57,7 @@ namespace GenticAlgorithm
             Console.WriteLine("Sorting the population by fittest.");
             List<Organism> sortedOrganisms = organisms.OrderByDescending(o => o.getFitness()).ToList();
 
+            // Select the top n fittest determined by fittest count
             Console.WriteLine("Done"); // testing
 
         }
