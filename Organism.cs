@@ -9,6 +9,11 @@ namespace GenticAlgorithm
         // Determines how fit an organism is (fitness score)
         int fitness = 0;
 
+        public int getFitness()
+        {
+            return this.fitness;
+        }
+
         // An abstract binary representation of an organisms genes
         int[] genes = new int[10];
 
