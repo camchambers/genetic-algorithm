@@ -62,6 +62,7 @@ namespace GenticAlgorithm
             // Use fitnessPercentage to determine number of organisms to 
             // return as being the fittest
             double fittestCount = Math.Ceiling(populationSize * fitnessPercentage);
+
             Console.WriteLine("Calculating the fittest " + (fitnessPercentage * 100) + "% of the population.");
 
             // Determine the fitness of each organism
@@ -90,6 +91,38 @@ namespace GenticAlgorithm
         protected List<Organism> crossover(List<Organism> organisms)
         {
 
+            Console.WriteLine("Mating selected organisms.");
+
+            // We need an even number of organisms for mating
+            // Duplicate the first organsism to the end of the list if there
+            // are an even number of organisms
+            if (organisms.Count % 2 != 0)
+            {
+                organisms.Add(organisms[0]);
+            }
+
+            // Define our new list of mated organisms to return
+            List<Organism> crossoverOrganisms = new List<Organism>();
+
+            // Iterate over our list of organsisms, mate them, and add the 
+            // new offspring to the crossover list of organisms
+            for (int i = 0; i < organisms.Count; i+=2 ){
+              
+            }
+
+
+            // Now that we have an even sized list, iterate over the list and 
+            // split it into two lists
+
+            // Loop from 1 to size of new lists
+            // Have element i from both lists breed (taking half the genes
+            // from each) and combining them into a new organism
+            // Add this organism to a new list called crossoverOrganisms
+            // return crossoverOrganisms
+
+            // Later you will replace 50% of the original population with the 
+            // new organisms
+
             return organisms;
         }
 
@@ -99,6 +132,5 @@ namespace GenticAlgorithm
         {
             return organisms;
         }
-
     }
 }
