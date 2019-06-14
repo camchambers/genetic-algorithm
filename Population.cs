@@ -35,13 +35,28 @@ namespace GenticAlgorithm
             // Generate through successive generations
             for (int i = 1; i <= generations; i++)
             {
+                // Display the population age (in generations)
                 Console.WriteLine("Population age: " + i);
+
+                // Get the fittest organisms from the population
                 List<Organism> fittestOrganisms = this.getFittest();
+
+                // Generate a new population by having the organisms mate
+                List<Organism> crossoverOrganisms = this.crossover(fittestOrganisms);
+
+                // Apply a random genetic mutation to the organisms
+                List<Organism> mutatedOrganisms = this.mutation(crossoverOrganisms);
+
+                // Replace the old generation with the new one
+                // TODO Experiment with how much of the generation to replace
+                this.organisms = crossoverOrganisms;
             }
         }
 
         // Return an array containing a percent of the fittest individuals
         // from the population
+        // TODO Explore making this method a delegate so that we can have a 
+        // dynamic fitness method that can be passed in
         protected List<Organism> getFittest()
         {
             // Use fitnessPercentage to determine number of organisms to 
@@ -67,12 +82,14 @@ namespace GenticAlgorithm
             }
 
             return fittestOrganisms;
-
         }
 
         // Mate pairs of the fittest organisms to produce a new population
-        protected List<Organism> crossOver(List<Organism> organisms)
+        // We can experiment with more advanced cross over patterns in the future
+        // but for now lets start with simply taking half from both organisms
+        protected List<Organism> crossover(List<Organism> organisms)
         {
+
             return organisms;
         }
 
