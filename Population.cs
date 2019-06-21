@@ -71,7 +71,7 @@ namespace GenticAlgorithm
             // Sort organisms based on object values using LINQ
             // Here we use the list OrderBy method to sort the list
             Console.WriteLine("Sorting the population by fittest.");
-            List<Organism> sortedOrganisms = organisms.OrderByDescending(o => o.getFitness()).ToList();
+            List<Organism> sortedOrganisms = organisms.OrderByDescending(o => o.fitness).ToList();
 
             // Select the top n fittest determined by fittest count by iterating
             // over the sorted list of organisms and adding them to a new list
@@ -90,7 +90,6 @@ namespace GenticAlgorithm
         // but for now lets start with simply taking half from both organisms
         protected List<Organism> crossover(List<Organism> organisms)
         {
-
             Console.WriteLine("Mating selected organisms.");
 
             // We need an even number of organisms for mating
@@ -106,24 +105,36 @@ namespace GenticAlgorithm
 
             // Iterate over our list of organsisms, mate them, and add the 
             // new offspring to the crossover list of organisms
-            for (int i = 0; i < organisms.Count; i+=2 ){
-              
+           
+
+            // Take the organisms count before iterating over organisms 
+            // because the count of organisms will be modified within the loop
+            int organismCount = organisms.Count;
+
+            // Iterate over pairs of organisms and mate them
+            // After they have been mated, replace the parents with the 
+            // new offspring
+            for (int i = 0; i < organismCount; i+=2 ){
+
+                 Organism offspring = new Organism();                     
+
+                 // offspring = mate(organisms[i],organisms[i+1]);
+                 
+                 // Remove the organisms parents
+                 organisms.RemoveRange(0,2);
+
+                 organisms.Add(offspring);          
+
             }
 
-
-            // Now that we have an even sized list, iterate over the list and 
-            // split it into two lists
-
-            // Loop from 1 to size of new lists
-            // Have element i from both lists breed (taking half the genes
-            // from each) and combining them into a new organism
-            // Add this organism to a new list called crossoverOrganisms
-            // return crossoverOrganisms
-
-            // Later you will replace 50% of the original population with the 
-            // new organisms
-
             return organisms;
+        }
+
+        // Mates two organisms by combining their genes and returning a 
+        // new orgianism 
+        protected Organism mate(Organism mother,Organism father)
+        {
+            return mother; // testing
         }
 
         // Perform random mutations of some of the genes of offspring (with a
@@ -132,5 +143,13 @@ namespace GenticAlgorithm
         {
             return organisms;
         }
+
+        // Iterates through each organism in the population and prints the
+        // genes of each organism 
+        protected void printOrganismGenes(){
+
+        }
+
+
     }
 }
