@@ -6,16 +6,15 @@ namespace GenticAlgorithm
     // population and determine how fit an organism is
     class Organism
     {
-        // Determines how fit an organism is (fitness score)
-        int fitness = 0;
 
-        public int getFitness()
-        {
-            return this.fitness;
-        }
+        public Guid guid {get; set;} = Guid.NewGuid();
+
+        // Determines how fit an organism is (fitness score)
+        public int fitness {get; set;} = 0;
 
         // An abstract binary representation of an organisms genes
-        int[] genes = new int[10];
+        // TODO Consider creating genes as it's own class with getters and setters
+        int[] genes {get; set;} = new int[10];
 
         // Constructor for organism class
         public Organism()
